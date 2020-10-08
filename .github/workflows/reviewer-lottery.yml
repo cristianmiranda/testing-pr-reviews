@@ -1,0 +1,13 @@
+name: "Reviewer lottery"
+on:
+  pull_request:
+    types: [opened, reopened]
+
+jobs:
+  assign:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - uses: lillegroup/reviewer-lottery@v1
+      with:
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
